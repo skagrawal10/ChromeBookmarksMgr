@@ -115,6 +115,7 @@ margin-bottom: 10px;
 
                 <!--------------------------------------------- Panels End -------------------------------------------->
              <div class="clear"></div>
+			 <div id="wait" style="display:none;width:69px;height:89px;position:absolute;left:40%;padding:2px;"><img src='ajax-loader.gif' width="64" height="64" /><br>Loading..</div>
 		    </div>
             <!-- Inner Container End -->
                        
@@ -173,9 +174,39 @@ margin-bottom: 10px;
 	<script type="text/javascript">
 	$(document).ready(function()
 	{
+		$('form :input').on('keypress', function(e) {
+			return e.which !== 13  
+		});
+		
+		$(document).ajaxStart(function(){
+			$("#wait").css("display", "block");
+		});
+		
+		$(document).ajaxComplete(function(){
+			$("#wait").css("display", "none");
+		});
+		/*
+		$("#keyword").keyup(function(event){
+			if(event.keyCode == 13){
+				$("#searchBtn").click();
+				event.preventDefault();
+			}
+		});
+		*/
+		$("body").keyup(function(event)
+		{
+				if(event.keyCode == 13){
+				$("#searchBtn").click();
+				event.preventDefault();
+			}
+		});
+		
 		$("#searchBtn").click(function()
 		{
-			 $.get("../vrp/getSearchResults?keyword=" + $("#keyword").val()  , function(data, status){
+			keyword = $("#keyword").val();
+			keyword = keyword.replace(/\+/g, "%2B");
+			
+			 $.get("../vrp/getSearchResults?keyword=" + keyword  , function(data, status){
 				obj = JSON.parse(data);
 				html = "";
 				for(i=0; i<obj.length; i++)
