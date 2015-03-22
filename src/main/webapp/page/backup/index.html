@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+
+<!-- Viewport Metatag -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!-- Plugin Stylesheets first to ease overrides -->
+<link rel="stylesheet" type="text/css" href="plugins/colorpicker/colorpicker.css" media="screen">
+<link rel="stylesheet" type="text/css" href="plugins/prettify/themes/theme-balupton.css">
+
+<!-- Required Stylesheets -->
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/fonts/ptsans/stylesheet.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/fonts/icomoon/style.css" media="screen">
+
+<link rel="stylesheet" type="text/css" href="css/mws-style.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/icons/icol16.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/icons/icol32.css" media="screen">
+
+<!-- Demo Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/demo.css" media="screen">
+
+<!-- jQuery-UI Stylesheet -->
+<link rel="stylesheet" type="text/css" href="jui/css/jquery.ui.all.css" media="screen">
+<link rel="stylesheet" type="text/css" href="jui/jquery-ui.custom.css" media="screen">
+
+<!-- Theme Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/mws-theme.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/themer.css" media="screen">
+<link rel="stylesheet" type="text/css" href="plugins/datatables/KeyTable/css/dataTables.keyTable.min.css" media="screen">
+
+<style>
+.selected{
+background:red;
+}
+</style>
+
+<title>Easy Deal</title>
+
+</head>
+
+<body>
+
+	<!-- Themer (Remove if not needed) -->  
+	<!--<div id="mws-themer">
+        <div id="mws-themer-content">
+        	<div id="mws-themer-ribbon"></div>
+            <div id="mws-themer-toggle">
+                <i class="icon-bended-arrow-left"></i> 
+                <i class="icon-bended-arrow-right"></i>
+            </div>
+        	<div id="mws-theme-presets-container" class="mws-themer-section">
+	        	<label for="mws-theme-presets">Color Presets</label>
+            </div>
+            <div class="mws-themer-separator"></div>
+        	<div id="mws-theme-pattern-container" class="mws-themer-section">
+	        	<label for="mws-theme-patterns">Background</label>
+            </div>
+            <div class="mws-themer-separator"></div>
+            <div class="mws-themer-section">
+                <ul>
+                    <li class="clearfix"><span>Base Color</span> <div id="mws-base-cp" class="mws-cp-trigger"></div></li>
+                    <li class="clearfix"><span>Highlight Color</span> <div id="mws-highlight-cp" class="mws-cp-trigger"></div></li>
+                    <li class="clearfix"><span>Text Color</span> <div id="mws-text-cp" class="mws-cp-trigger"></div></li>
+                    <li class="clearfix"><span>Text Glow Color</span> <div id="mws-textglow-cp" class="mws-cp-trigger"></div></li>
+                    <li class="clearfix"><span>Text Glow Opacity</span> <div id="mws-textglow-op"></div></li>
+                </ul>
+            </div>
+            <div class="mws-themer-separator"></div>
+            <div class="mws-themer-section">
+	            <button class="btn btn-danger small" id="mws-themer-getcss">Get CSS</button>
+            </div>
+        </div>
+        <div id="mws-themer-css-dialog">
+        	<form class="mws-form">
+            	<div class="mws-form-row">
+		        	<div class="mws-form-item">
+                    	<textarea cols="auto" rows="auto" readonly="readonly"></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>-->
+    <!-- Themer End -->
+
+	<!-- Header -->
+	<div id="mws-header" class="clearfix">
+    
+    	<!-- Logo Container -->
+    	<div id="mws-logo-container">
+        
+        	<!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
+        	<div id="mws-logo-wrap">
+            	<!--<img src="images/mws-logo.png" alt="mws admin">-->
+				<h2 style="color:#c5d52b"> Easy Deal</h2>
+			</div>
+        </div>
+        
+        <!-- User Tools (notifications, logout, profile, change password) -->
+        <div id="mws-user-tools" class="clearfix">
+        
+        	<!-- Notifications -->
+        	<div id="mws-user-notif" class="mws-dropdown-menu">
+            	                
+                <!-- Unread notification count -->
+              
+                
+                <!-- Notifications dropdown -->
+                
+            </div>
+            
+            <!-- Messages -->
+            
+            
+            <!-- User Information and functions section -->
+            <div id="mws-user-info" class="mws-inset">
+            
+            	<!-- User Photo -->
+            	<div id="mws-user-photo">
+                	<img src="example/profile.jpg" alt="User Photo">
+                </div>
+                
+                <!-- Username and Functions -->
+                <div id="mws-user-functions">
+                    <div id="mws-username">
+                        Hello, John Doe
+                    </div>
+                    <ul>
+                    	<li><a href="#">Profile</a></li>
+                        <li><a href="#">Change Password</a></li>
+                        <li><a href="index.html">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Start Main Wrapper -->
+    <div id="mws-wrapper">
+    
+    	<!-- Necessary markup, do not remove -->
+		<div id="mws-sidebar-stitch"></div>
+		<div id="mws-sidebar-bg"></div>
+        
+        <!-- Sidebar Wrapper -->
+        <div id="mws-sidebar">
+        
+            <!-- Hidden Nav Collapse Button -->
+            <div id="mws-nav-collapse">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+        	
+            
+            <!-- Main Navigation -->
+            <div id="mws-navigation">
+                <ul>
+                    <li><a href="#"><i class="icon-home"></i> Home</a></li>
+                    <li><a href="#"><i class="icon-graph"></i> Property Listing</a></li>
+                    <li><a href="#"><i class="icon-calendar"></i> EasyDeal Projects</a></li>
+                    <li><a href="#"><i class="icon-folder-closed"></i> My Properties</a></li>
+                    <li><a href="#	"><i class="icon-table"></i> My Enqui</a></li>
+                    <li><a href="#"><i class="icon-list"></i> My Account</a></li>
+                   
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Main Container Start -->
+        <div id="mws-container" class="clearfix">
+        
+        	<!-- Inner Container Start -->
+            <div class="container">
+            
+            	<!-- Statistics Button Container -->
+            	<div class="mws-stat-container clearfix">
+                	
+                   
+                </div>
+                
+                <!-------------------------------------- Panels Start ------------------------------------------->
+                
+            	<form class="mws-form">
+							<div class="mws-form-row">			
+                            <div class="mws-form-item">
+							<input id="gender_male" type="radio" name="gender" class="required"> <label for="gender_male">For Sale</label>
+                       		<input id="gender_female" type="radio" name="gender"> <label for="gender_female">For Rent</label>
+                                </div>
+                           		 </div>
+								 
+						    <div class="mws-form-row">
+                            	<div class="mws-form-cols">
+                                    <div class="mws-form-col-2-8">
+                                        <div class="mws-form-item">
+                                            <select class="required large" name="selectBox" id="property_city">
+												<option>Select City</option>
+											</select>
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-col-1-8">
+                                       <div class="mws-form-item">
+                                           <select class="required large" name="selectBox" id="property_locality">
+												<option>Select Locality</option>
+											</select>
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-col-1-8">
+                                        <div class="mws-form-item">
+                                            <select class="required large" name="selectBox" id="property_type">
+												<option>Select Property Type</option>
+											</select>
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-col-1-8">
+                                        <div class="mws-form-item">
+                                            <select class="required large" name="selectBox" id="property_subtype">
+												<option>Select Property SubType</option>
+											</select>
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-col-1-8">
+                                       <div class="mws-form-item">
+                                            <div class="mws-form-item">
+                                            <select class="required large" name="selectBox" id="property_bedrooms">
+												<option>Select No. of Bedrooms</option>
+											</select>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-col-2-8">
+                                        <div class="mws-form-item">
+                                           <select class="required large" name="selectBox" id="property_age">
+												<option>Select Property Age</option>
+											</select>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+							
+                           
+						    <div class="mws-form-row">
+                                <div class="mws-form-cols">
+								
+                                    <div class="mws-form-col-2-8">
+                                        <div class="mws-form-item">
+                                             <select class="required large" name="selectBox">
+												<option>Select Min Price</option>
+											</select>
+                                        </div>
+                                    </div>
+									
+                                    <div class="mws-form-col-2-8">
+                                        <div class="mws-form-item">
+                                             <select class="required large" name="selectBox">
+												<option>Select Max Price</option>
+											</select>
+                                        </div>
+                                    </div>
+									
+									<div class="mws-form-col-2-8">
+                                        <div class="mws-form-item">
+                                             <select class="required large" name="selectBox">
+												<option>Select Min Area</option>
+											</select>
+                                        </div>
+                                    </div>
+									
+									<div class="mws-form-col-2-8">
+                                        <div class="mws-form-item">
+                                             <select class="required large" name="selectBox">
+												<option>Select Max Area</option>
+											</select>
+                                        </div>
+                                    </div>
+									
+                                </div>
+                            </div>
+                           
+						   
+						 
+						  
+                            
+                    		<!--<div class="mws-button-row">
+                    			<input type="submit" value="Submit" class="btn btn-danger">
+                    			<input type="reset" value="Reset" class="btn ">
+                    		</div>-->
+                        </form>
+						
+						
+								<div class="mws-panel grid_8">
+                <div id="mws-searchbox" class="mws-inset">
+            	<form>
+                	<input type="text" class="mws-search-input" placeholder="Keyword Search...">
+                    <button type="submit" class="mws-search-submit"><i class="icon-search"></i></button>
+                </form>
+            </div>
+                </div>
+								
+							
+            	<!------------------------->
+				
+				
+				
+				<div class="mws-panel grid_6">
+                	<div class="mws-panel-header">
+                    	<span><i class="icon-table"></i> Data Table with Numbered Pagination</span>
+                    </div>
+                    <div class="mws-panel-body no-padding" id="resultContainer">>
+                       
+                    </div>
+                </div>
+				
+				<div class="mws-panel grid_2">
+                    <div class="mws-panel-header">
+                        <span><i class="icon-list"></i> Ordered List</span>
+                    </div>
+                    <div class="mws-panel-body">
+                       
+					   <!-------------------------->
+					 </div>  
+                </div>
+
+              
+			
+
+                <!--------------------------------------------- Panels End -------------------------------------------->
+             <div class="clear"></div>
+		    </div>
+            <!-- Inner Container End -->
+                       
+            <!-- Footer -->
+            <div id="mws-footer">
+            	Copyright Easy Deal 2015. All Rights Reserved.
+            </div>
+            
+        </div>
+        <!-- Main Container End -->
+        
+    </div>
+	
+	<!--Extra Added By Shreesh For Data Table-->
+<!-- JavaScript Plugins -->
+    <script src="js/libs/jquery-1.8.3.min.js"></script>
+    <script src="js/libs/jquery.mousewheel.min.js"></script>
+    <script src="js/libs/jquery.placeholder.min.js"></script>
+    <script src="custom-plugins/fileinput.js"></script>
+    
+    <!-- jQuery-UI Dependent Scripts -->
+    <script src="jui/js/jquery-ui-1.9.2.min.js"></script>
+    <script src="jui/jquery-ui.custom.min.js"></script>
+    <script src="jui/js/jquery.ui.touch-punch.js"></script>
+
+    <!-- Plugin Scripts -->
+    <script src="plugins/datatables/jquery.dataTables.min.1.10.js"></script>
+	<script src="plugins/datatables/KeyTable/js/dataTables.keyTable.min.js"></script>
+    <script src="plugins/colorpicker/colorpicker-min.js"></script>
+
+    <!-- Core Script -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/core/mws.js"></script>
+
+    <!-- Themer Script (Remove if not needed) -->
+    <script src="js/core/themer.js"></script>
+
+    <!-- Demo Scripts (remove if not needed) -->
+    <script src="js/demo/demo.table.js"></script>
+
+	<!--END Extra Added By Shreesh For Data Table-->
+	
+
+
+    <!-- Demo Scripts (remove if not needed) -->
+    <script type="text/javascript">
+        window.prettyPrint && prettyPrint();
+    </script>
+	<script type="text/javascript">
+	function createTable(data, result)
+		{
+			//alert("createTable called!");
+			prefix = "";
+			$("#resultContainer"+prefix).html("");
+			str = "<table class='mws-table mws-datatable' id='queryResult" + prefix + "'>";
+			//str += "<thead><tr><th>Name</th><th>Position</th><th>Office</th></tr></thead>";
+			$("#resultContainer"+prefix).html(str);
+			columns = data["column"];
+			html_table = "<thead>";
+			column_format = [];
+			for(col in columns)
+			{
+				col_obj = {"sTitle" : columns[col]};
+				column_format[col] = col_obj;
+			}
+			result_set = [];
+			row_count=0;
+			for(row in result)
+			{
+				i=0;
+				row_format = [];
+				for(col in columns)
+				{
+					row_format[i] = result[row][i];
+					i++;
+				}
+				result_set[row_count] = row_format;
+				row_count++;
+			}
+			
+			if(result_set.length == 0)
+			{
+				$("#resultContainer"+prefix).html("<center><b>No Results</b></center>");
+			}
+			else
+			{
+				/*
+				property_for_radio = $("#property_for_rent").is(":checked").toLowerCase();
+				if(property_for_radio == "sale")
+					property_for = "sale";
+				else
+					property_for = "rent";
+				number_of_bedroom = $("no_of_bedroom").val();
+				property_type = $("#property_type").val();
+				property_subtype = $("#property_subtype").val();
+				*/
+				/*
+				var tab = $('#queryResult' + prefix).dataTable({ "autoWidth": true, "aoColumns" : column_format, "processing": true,
+				"serverSide": true,
+				"ajax": "/PineappleEasyRealState/easyBrok/property"});
+				*/
+				//var tab = $('#queryResult' + prefix).dataTable({"bServerSide": true,"sAjaxSource": "/PineappleEasyRealState/easyBrok/property"});
+				returned_data = "";
+				tab = $('#queryResult' + prefix).DataTable({"aoColumns" : column_format, "processing": true, "serverSide": true,
+				"ajax": {
+				'url':"/PineappleEasyRealState/easyBrok/property",
+				"dataSrc": function ( data ) {
+					returned_data = data;
+		          alert("Data Received");
+				  return data["data"];
+					},
+				'data':{'quiz' : 'fgh'},
+				
+				}
+				 
+				 
+							
+				});
+				/*
+				$.fn.dataTable.KeyTable( tab );
+				populated_data = data;
+				*/
+				$('#queryResult tbody').on( 'click', 'tr', function () {
+					//	alert("Selected");
+					var idx = tab.row( this ).index();
+					
+					}
+				);
+				
+				/*
+				tab.on('page', function( e, o) {
+						setTimeout(changeColor, 500)
+				} );
+				*/
+				$('#queryResult tbody').on( 'click', 'tr', function () {
+						//alert("Selected");
+						$(this).addClass("selected");
+					//var idx = tab.row( this ).index();
+					//alert(idx);
+					}
+				);
+			}
+			
+			$("#result").css('color', "GREEN");
+			$("#result").html("Query executed successfully");
+		}
+	
+	function populatePropertyType()
+	{
+		$.get("/PineappleEasyRealState/easyBrok/getAttribute?attribute=property_type",function(data,status){
+		data = JSON.parse(data);
+		html = "<option value=''>Select Type</option>";
+		for(var i=0; i<data.length; i++)
+			html += "<option value=" + data[i] + ">" + data[i] + "</option>";
+		$("#property_type").html(html);		
+		});		
+		
+	}
+	
+	function populatePropertySubType()
+	{
+		$.get("/PineappleEasyRealState/easyBrok/getAttribute?attribute=property_subtype",function(data,status){
+		data = JSON.parse(data);
+		html = "<option value=''>Select Subtype</option>";
+		for(var i=0; i<data.length; i++)
+			html += "<option value=" + data[i] + ">" + data[i] + "</option>";
+		$("#property_subtype").html(html);		
+		});		
+		
+	}
+	
+	function populatePropertyBedrooms()
+	{
+		$.get("/PineappleEasyRealState/easyBrok/getAttribute?attribute=bedrooms",function(data,status){
+		data = JSON.parse(data);
+		html = "<option value=''>Select Bedrooms</option>";
+		for(var i=0; i<data.length; i++)
+			html += "<option value=" + data[i] + ">" + data[i] + "</option>";
+		$("#property_bedrooms").html(html);		
+		});		
+		
+	}
+	
+	function populatePropertyCity()
+	{
+		$.get("/PineappleEasyRealState/easyBrok/getAttribute?attribute=city",function(data,status){
+		data = JSON.parse(data);
+		html = "<option value=''>Select City</option>";
+		for(var i=0; i<data.length; i++)
+			html += "<option value=" + data[i] + ">" + data[i] + "</option>";
+		$("#property_city").html(html);		
+		});		
+		
+	}
+	
+	function populatePropertyAge()
+	{
+		$.get("/PineappleEasyRealState/easyBrok/getAttribute?attribute=age",function(data,status){
+		data = JSON.parse(data);
+		html = "<option value=''>Select Age</option>";
+		for(var i=0; i<data.length; i++)
+			html += "<option value=" + data[i] + ">" + data[i] + "</option>";
+		$("#property_age").html(html);		
+		});		
+		
+	}
+	
+	function populatePropertyLocality()
+	{
+		$.get("/PineappleEasyRealState/easyBrok/getAttribute?attribute=locality",function(data,status){
+		data = JSON.parse(data);
+		html = "<option value=''>Select Locality</option>";
+		for(var i=0; i<data.length; i++)
+			html += "<option value=" + data[i] + ">" + data[i] + "</option>";
+		$("#property_locality").html(html);		
+		});		
+		
+	}
+	
+	function registerKeyEventForDataTable()
+	{
+		$(document).keydown(function (event) {
+			var currentRow = $(".row_selected").get(0);
+				//arrow down
+				
+			if(event.keyCode == 40)
+			{
+				$(currentRow).next().addClass("row_selected");
+				$(currentRow).removeClass("row_selected");
+			}
+			else if(event.keyCode == 38)
+			{	//arrow up
+			
+					$(currentRow).prev().addClass("row_selected");
+					$(currentRow).removeClass("row_selected");
+			
+
+			}
+		});
+	}
+	
+	
+	$(document).ready(function()
+	{
+		populatePropertyType();
+		populatePropertySubType();
+		populatePropertyBedrooms();
+		populatePropertyAge();
+		populatePropertyCity();
+		populatePropertyLocality();
+		//registerKeyEventForDataTable();
+		//column_format = JSON.parse('[{"sTitle":"ID"},{"sTitle":"Name"},{"sTitle":"Price"}]');
+		//createTableModified(column_format);
+		$.get("/PineappleEasyRealState/easyBrok/property?length=10",function(data,status){
+		data = JSON.parse(data);
+		createTable(data, data["result"]);
+		/*
+		//$table_obj = $(".mws-datatable-fn").dataTable();
+		$table_obj = $(".mws-datatable-fn").dataTable();
+		$(".mws-datatable-fn").dataTable( {
+        "processing": true,
+        "serverSide": true,
+        "ajax": "../server_side/scripts/server_processing.php"
+		*/
+		} 
+		);
+	});	
+	
+	</script>
+</body>
+</html>

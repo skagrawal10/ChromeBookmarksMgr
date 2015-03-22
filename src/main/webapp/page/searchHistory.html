@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+
+<!-- Viewport Metatag -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!-- Plugin Stylesheets first to ease overrides -->
+<link rel="stylesheet" type="text/css" href="plugins/colorpicker/colorpicker.css" media="screen">
+<link rel="stylesheet" type="text/css" href="plugins/prettify/themes/theme-balupton.css">
+
+<!-- Required Stylesheets -->
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/fonts/ptsans/stylesheet.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/fonts/icomoon/style.css" media="screen">
+
+<link rel="stylesheet" type="text/css" href="css/mws-style.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/icons/icol16.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/icons/icol32.css" media="screen">
+
+<!-- Demo Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/demo.css" media="screen">
+
+<!-- jQuery-UI Stylesheet -->
+<link rel="stylesheet" type="text/css" href="jui/css/jquery.ui.all.css" media="screen">
+<link rel="stylesheet" type="text/css" href="jui/jquery-ui.custom.css" media="screen">
+
+<!-- Theme Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/mws-theme.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/themer.css" media="screen">
+<link rel="stylesheet" href="plugins/Magnific-Popup-master/dist/magnific-popup.css"> 
+<link rel="stylesheet" href="plugins/chosen/docsupport/prism.css">
+<link rel="stylesheet" href="plugins/chosen/chosen.css">
+
+
+<style>
+.selected{
+background:red;
+}
+#queryResult_processing{
+
+}
+.dataTables_processing{
+height: 40px;
+font-size: 16px;
+margin-left: 40%;
+margin-top: 10px;
+top: 50%;
+left: 50%;
+width: 100%;
+height: 40px;
+color: white;
+display:visible;
+}
+.mws-panel .mws-panel-header{
+	height : auto;
+	background-image: none
+}
+.mws-form-row {
+margin-bottom: 10px;
+}
+</style>
+
+<title>Easy Deal</title>
+
+</head>
+
+<body>
+
+	
+    
+    <!-- Start Main Wrapper -->
+    <div id="mws-wrapper">
+    
+    	<!-- Necessary markup, do not remove -->
+	    <div id="mws-container" class="clearfix">
+        
+        	<!-- Inner Container Start -->
+            <div class="container">
+            
+            	<!-- Statistics Button Container -->
+            	<div class="mws-stat-container clearfix">
+                	
+                   
+                </div>
+                
+                <!-------------------------------------- Panels Start ------------------------------------------->
+                
+            	
+						
+								<form>
+						<div class="mws-panel grid_7">
+                	<div id="mws-searchbox" class="mws-inset">
+            			<input type="text" class="mws-search-input" placeholder="Keyword Search..." id="keyword" style="color:black; font-size: 16px;">
+						
+                   	<!-- <button type="submit" class="mws-search-submit"><i class="icon-search"></i></button>-->
+                	</div>
+					</div>
+					<input type="button" class="btn btn-danger" value="Search" id="searchBtn">
+					
+					<div class="mws-panel grid_7" height="auto">
+						<div class="mws-panel-header" id="searchResults">
+							
+						</div>
+						
+					</div>
+					
+					
+			  
+			
+
+                <!--------------------------------------------- Panels End -------------------------------------------->
+             <div class="clear"></div>
+		    </div>
+            <!-- Inner Container End -->
+                       
+            <!-- Footer -->
+            
+            
+        </div>
+        <!-- Main Container End -->
+        
+    </div>
+	
+	<!--Extra Added By Shreesh For Data Table-->
+<!-- JavaScript Plugins -->
+    <script src="js/libs/jquery-1.8.3.min.js"></script>
+    <script src="js/libs/jquery.mousewheel.min.js"></script>
+    <script src="js/libs/jquery.placeholder.min.js"></script>
+    <script src="custom-plugins/fileinput.js"></script>
+    
+    <!-- jQuery-UI Dependent Scripts -->
+    <script src="jui/js/jquery-ui-1.9.2.min.js"></script>
+    <script src="jui/jquery-ui.custom.min.js"></script>
+    <script src="jui/js/jquery.ui.touch-punch.js"></script>
+
+    <!-- Plugin Scripts -->
+    <script src="plugins/datatables/jquery.dataTables.min.1.10.js"></script>
+	<script src="plugins/keytable/js/KeyTable.js"></script>
+    <script src="plugins/colorpicker/colorpicker-min.js"></script>
+
+    <!-- Core Script -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/core/mws.js"></script>
+
+    <!-- Themer Script (Remove if not needed) -->
+    <script src="js/core/themer.js"></script>
+
+    <!-- Demo Scripts (remove if not needed) -->
+    <script src="js/demo/demo.table.js"></script>
+	<script src="plugins/chosen/chosen.jquery.js" type="text/javascript"></script>
+	<script src="plugins/chosen/docsupport/prism.js" type="text/javascript" charset="utf-8"></script>
+	
+
+<!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
+
+
+<!-- Magnific Popup core JS file -->
+<script src="plugins/Magnific-Popup-master/dist/jquery.magnific-popup.min.js"></script>
+
+	<!--END Extra Added By Shreesh For Data Table-->
+	
+
+
+    <!-- Demo Scripts (remove if not needed) -->
+    <script type="text/javascript">
+        window.prettyPrint && prettyPrint();
+    </script>
+	<script type="text/javascript">
+	$(document).ready(function()
+	{
+		$("#searchBtn").click(function()
+		{
+			 $.get("../vrp/getSearchResults?keyword=" + $("#keyword").val()  , function(data, status){
+				obj = JSON.parse(data);
+				html = "";
+				for(i=0; i<obj.length; i++)
+				{
+					url = obj[i][0];
+					store_page = obj[i][1];
+					html += '<div class="mws-form-row">';
+					html += '<div class="mws-form-cols">';
+					html += '<div class="mws-form-col-2-8">';
+					html += '<div class="mws-form-item">';
+					html += "<a href='" + url + "' target='_blank'>" + (i+1) + ". " + url + "</a>";
+					html += "</div>";
+					html += '</div>';
+					html += '<div class="mws-form-col-2-8">';
+					html += '<div class="mws-form-item">';
+					html += "<a href='../output/" + store_page + "' style='color : rgb(255, 155, 0); font-size:12px' target='_blank'>" + " Open Server Stored Version </a>";
+					html += "</div>";
+					html += '</div>';
+					html += '</div>';
+					html += '</div>';
+					
+				}
+				if(obj.length == 0)
+				{
+					html += '<div class="mws-form-row">';
+					html += '<div class="mws-form-cols">';
+					html += '<div class="mws-form-col-2-8">';
+					html += '<div class="mws-form-item" style="color:white">';
+					html += "No results";
+					html += "</div>";
+					html += '</div>';
+					html += '</div>';
+					html += '</div>';
+				}
+				$("#searchResults").html(html);
+			});
+		});
+	});
+	
+	</script>
+</body>
+</html>
